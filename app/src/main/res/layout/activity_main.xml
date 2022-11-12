@@ -144,6 +144,16 @@
             tools:layout_editor_absoluteY="160dp" />
 
         <Button
+            android:id="@+id/button_zero"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="0"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="160dp" />
+
+
+        <Button
             android:id="@+id/button_C"
             android:layout_width="0dp"
             android:layout_weight="1"
