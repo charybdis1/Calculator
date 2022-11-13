@@ -113,7 +113,7 @@ fun printUserShortName() {
 // Тестировать код можно здесь
 fun main() {
     println("start main fun")
-    //printUserShortName()
+    printUserShortName()
     //testReturns()
 
     println(user)

@@ -65,6 +65,22 @@ class MainActivity : AppCompatActivity() {
         // Передаем ссылку на объект clickListener в метод setOnClickListener,
         // который назначит его кнопке
         button1.setOnClickListener(clickListener)
+        button2.setOnClickListener(clickListener)
+        button3.setOnClickListener(clickListener)
+        button4.setOnClickListener(clickListener)
+        button5.setOnClickListener(clickListener)
+        button6.setOnClickListener(clickListener)
+        button7.setOnClickListener(clickListener)
+        button8.setOnClickListener(clickListener)
+        button9.setOnClickListener(clickListener)
+        button0.setOnClickListener(clickListener)
+        buttonMinus.setOnClickListener(clickListener)
+        buttonPlus.setOnClickListener(clickListener)
+        buttonDiv.setOnClickListener(clickListener)
+        buttonMult.setOnClickListener(clickListener)
+        buttonEquals.setOnClickListener(clickListener)
+        buttonC.setOnClickListener(clickListener)
+
 
     }
 }
