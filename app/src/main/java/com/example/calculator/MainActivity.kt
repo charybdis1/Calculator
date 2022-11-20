@@ -8,6 +8,11 @@ import android.widget.TextView
 import androidx.core.graphics.component1
 
 class MainActivity : AppCompatActivity() {
+
+    private var action: Action? = null
+    private var digit1: Int? = null
+    private var digit2: Int? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -41,22 +46,56 @@ class MainActivity : AppCompatActivity() {
             override fun onClick(view: View) {
                 // В переменную digit присвой значение цифры в зависимости от нажатой кнопки
                 // view - кнопка из XML, на которую нажали
-                val digit = when (view.id) {
-                    R.id.button1 -> 1
-                    R.id.button2 -> 2
-                    R.id.button3 -> 3
-                    R.id.button4 -> 4
-                    R.id.button5 -> 5
-                    R.id.button6 -> 6
-                    R.id.button7 -> 7
-                    R.id.button8 -> 8
-                    R.id.button9 -> 9
-                    R.id.button_zero -> 0
 
-                    else -> -0
+                // Ввод первой цифры на калькуляторе
+                if (action == null) {
+                    digit1 = when (view.id) {
+                        R.id.button1 -> 1
+                        R.id.button2 -> 2
+                        R.id.button3 -> 3
+                        R.id.button4 -> 4
+                        R.id.button5 -> 5
+                        R.id.button6 -> 6
+                        R.id.button7 -> 7
+                        R.id.button8 -> 8
+                        R.id.button9 -> 9
+                        R.id.button_zero -> 0
+
+                        else -> null
+                    }
+
+                    textView.text = digit1.toString()
                 }
 
-                textView.text = digit.toString()
+                // Ввод действия
+
+                action = when (view.id) {
+                    R.id.button_minus -> Action.MINUS
+                    R.id.button_plus -> Action.PLUS
+                    R.id.button_div -> Action.DIV
+                    R.id.button_mult -> Action.MULT
+
+                    else -> null
+                }
+
+                //Ввод второй цифры
+                if (action != null) {
+
+                    digit2 = when (view.id) {
+                        R.id.button1 -> 1
+                        R.id.button2 -> 2
+                        R.id.button3 -> 3
+                        R.id.button4 -> 4
+                        R.id.button5 -> 5
+                        R.id.button6 -> 6
+                        R.id.button7 -> 7
+                        R.id.button8 -> 8
+                        R.id.button9 -> 9
+                        R.id.button_zero -> 0
+
+                        else -> null
+                    }
+                }
             }
 
 
@@ -82,5 +121,12 @@ class MainActivity : AppCompatActivity() {
         buttonC.setOnClickListener(clickListener)
 
 
+    }
+
+    /**
+     * Арифметическое действие, выбранное пользователем
+     */
+    enum class Action {
+        PLUS, MINUS, DIV, MULT
     }
 }
